@@ -1,9 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        //String filter = "\\w {1,} \\w {1,} \\w {1,} \\w {1,} \\w {1,} \\w {1,} \\w {1,} \\w {1,} \\w {1,} \\w {1,}]";
-        //System.out.println("This text is simple to read! It has on average less than 10 words per sentence.".matches(filter));
-        //System.out.println("This text is hard to read. It contains a lot of sentences as well as a lot of words in each sentence".matches(filter));
-
         String[] filter1 = "This text is simple to read! It has on average less than 10 words per sentence. one more sentences".split("[\\d\\w,] ");
         String[] filter2 = "This text is hard to read. It contains a lot of sentences as well as a lot of words in each sentence".split("[\\d\\w,] ");
         /// Первый текст
