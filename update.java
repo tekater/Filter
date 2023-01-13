@@ -1,24 +1,45 @@
+import java.util.Scanner;
+
 public class Main {
+    public static String easy() {
+        return "EASY";
+    }
+    public static String hard() {
+        return "HARD";
+    }
     public static void main(String[] args) {
-        String[] filter1 = "This text is simple to read! It has on average less than 10 words per sentence. one more sentences".split("[\\d\\w,] ");
-        String[] filter2 = "This text is hard to read. It contains a lot of sentences as well as a lot of words in each sentence".split("[\\d\\w,] ");
-        /// Первый текст
-        System.out.println("This text is simple to read! It has on average less than 10 words per sentence.");
-        int length1 = filter1.length;
-        int length2 = filter2.length;
-        System.out.println(length1);
-       if ((length1/2) < 10){
-            System.out.println("Easy");
-        } else{
-            System.out.println("Hard");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        String one = "This text is simple to read! It has on average less than 10 words per sentence. one more sentences";
+        String two = "This text is hard to read. It contains a lot of sentences as well as a lot of words in each sentence";
+        // изменил регулярку, чтобы разделяло предложения в строке (! и .)
+        String[] inputArray = input.split("[!\\.\\?]");
+        String[] sentenceOne = one.split("[!\\.\\?]");
+        String[] sentenceTwo = two.split("[!\\.\\?]");
+
+        // нахожу количество слов в общем, без деления на предложения,
+        int inputLength = input.split("").length;
+        int wordsOne = one.split("").length;
+        int wordsTwo = two.split("").length;
+        // input - start
+        if (inputLength / inputArray.length <= 10) {
+            System.out.println(easy());
+        } else {
+            System.out.println(hard());
         }
-        /// Второй текст
-        System.out.println("This text is hard to read. It contains a lot of sentences as well as a lot of words in each sentence");
-        System.out.println(length2);
-        if ((length2/2) < 10){
-            System.out.println("Easy");
+        // input - end
+        
+        // первый текст
+        if (wordsOne / sentenceOne.length <= 10){
+            System.out.println(easy());
         } else{
-            System.out.println("Hard");
+            System.out.println(hard());
+        }
+        // Второй текст
+        if (wordsTwo / sentenceTwo.length < 10){
+            System.out.println(easy());
+        } else{
+            System.out.println(hard());
         }
     }
 }
